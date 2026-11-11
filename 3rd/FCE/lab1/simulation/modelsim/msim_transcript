@@ -1,0 +1,91 @@
+# do main_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying /home/ghost/intelFPGA/20.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+/home/ghost/Desktop/itmo/3rd/FCE/lab1 {/home/ghost/Desktop/itmo/3rd/FCE/lab1/main.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 01:55:25 on Nov 11,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ghost/Desktop/itmo/3rd/FCE/lab1" /home/ghost/Desktop/itmo/3rd/FCE/lab1/main.v 
+# -- Compiling module main
+# 
+# Top level modules:
+# 	main
+# End time: 01:55:26 on Nov 11,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/ghost/Desktop/itmo/3rd/FCE/lab1 {/home/ghost/Desktop/itmo/3rd/FCE/lab1/mux2_assign.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 01:55:26 on Nov 11,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ghost/Desktop/itmo/3rd/FCE/lab1" /home/ghost/Desktop/itmo/3rd/FCE/lab1/mux2_assign.v 
+# -- Compiling module mux2_assign
+# 
+# Top level modules:
+# 	mux2_assign
+# End time: 01:55:26 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+/home/ghost/Desktop/itmo/3rd/FCE/lab1 {/home/ghost/Desktop/itmo/3rd/FCE/lab1/mux2_n.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 01:55:26 on Nov 11,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ghost/Desktop/itmo/3rd/FCE/lab1" /home/ghost/Desktop/itmo/3rd/FCE/lab1/mux2_n.v 
+# -- Compiling module mux2_n
+# 
+# Top level modules:
+# 	mux2_n
+# End time: 01:55:26 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+/home/ghost/Desktop/itmo/3rd/FCE/lab1 {/home/ghost/Desktop/itmo/3rd/FCE/lab1/tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 01:55:26 on Nov 11,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/ghost/Desktop/itmo/3rd/FCE/lab1" /home/ghost/Desktop/itmo/3rd/FCE/lab1/tb.v 
+# -- Compiling module tb
+# 
+# Top level modules:
+# 	tb
+# End time: 01:55:26 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" tb 
+# Start time: 01:55:26 on Nov 11,2026
+# Loading work.tb
+# Loading work.main
+# Loading work.mux2_n
+# Loading work.mux2_assign
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# Ok: sel=1 a= 36 b=129 y=129
+# Ok: sel=1 a= 99 b= 13 y= 13
+# Ok: sel=1 a=101 b= 18 y= 18
+# Ok: sel=1 a= 13 b=118 y=118
+# Ok: sel=1 a=237 b=140 y=140
+# Ok: sel=0 a=198 b=197 y=198
+# Ok: sel=0 a=229 b=119 y=229
+# Ok: sel=0 a=143 b=242 y=143
+# Ok: sel=0 a=232 b=197 y=232
+# Ok: sel=1 a=189 b= 45 y= 45
+# Ok: sel=0 a= 99 b= 10 y= 99
+# Ok: sel=1 a= 32 b=170 y=170
+# Ok: sel=1 a=150 b= 19 y= 19
+# Ok: sel=1 a= 83 b=107 y=107
+# Ok: sel=1 a=  2 b=174 y=174
+# Ok: rst
+# ** Note: $finish    : /home/ghost/Desktop/itmo/3rd/FCE/lab1/tb.v(65)
+#    Time: 176 ns  Iteration: 0  Instance: /tb
+# 1
+# Break in Module tb at /home/ghost/Desktop/itmo/3rd/FCE/lab1/tb.v line 65
+# 
+# stdin: <EOF>
+# End time: 01:55:31 on Nov 11,2026, Elapsed time: 0:00:05
+# Errors: 0, Warnings: 0

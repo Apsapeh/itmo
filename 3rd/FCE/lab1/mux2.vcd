@@ -1,0 +1,618 @@
+$date
+	Wed Nov 11 12:31:05 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb $end
+$var wire 8 ! y [7:0] $end
+$var parameter 32 " C $end
+$var parameter 32 # N $end
+$var reg 8 $ a [7:0] $end
+$var reg 8 % b [7:0] $end
+$var reg 1 & clk $end
+$var reg 8 ' expected [7:0] $end
+$var reg 1 ( rst $end
+$var reg 1 ) sel $end
+$var integer 32 * i [31:0] $end
+$scope module dut $end
+$var wire 8 + a [7:0] $end
+$var wire 8 , b [7:0] $end
+$var wire 1 & clk $end
+$var wire 1 ( rst $end
+$var wire 1 ) sel $end
+$var wire 8 - y_w [7:0] $end
+$var parameter 32 . N $end
+$var reg 8 / y [7:0] $end
+$scope module mux $end
+$var wire 8 0 a [7:0] $end
+$var wire 8 1 b [7:0] $end
+$var wire 1 ) sel $end
+$var wire 8 2 y [7:0] $end
+$var parameter 32 3 N $end
+$scope begin gen_mux2[0] $end
+$var parameter 2 4 i $end
+$scope module m $end
+$var wire 1 5 a $end
+$var wire 1 6 b $end
+$var wire 1 ) sel $end
+$var wire 1 7 y $end
+$upscope $end
+$upscope $end
+$scope begin gen_mux2[1] $end
+$var parameter 2 8 i $end
+$scope module m $end
+$var wire 1 9 a $end
+$var wire 1 : b $end
+$var wire 1 ) sel $end
+$var wire 1 ; y $end
+$upscope $end
+$upscope $end
+$scope begin gen_mux2[2] $end
+$var parameter 3 < i $end
+$scope module m $end
+$var wire 1 = a $end
+$var wire 1 > b $end
+$var wire 1 ) sel $end
+$var wire 1 ? y $end
+$upscope $end
+$upscope $end
+$scope begin gen_mux2[3] $end
+$var parameter 3 @ i $end
+$scope module m $end
+$var wire 1 A a $end
+$var wire 1 B b $end
+$var wire 1 ) sel $end
+$var wire 1 C y $end
+$upscope $end
+$upscope $end
+$scope begin gen_mux2[4] $end
+$var parameter 4 D i $end
+$scope module m $end
+$var wire 1 E a $end
+$var wire 1 F b $end
+$var wire 1 ) sel $end
+$var wire 1 G y $end
+$upscope $end
+$upscope $end
+$scope begin gen_mux2[5] $end
+$var parameter 4 H i $end
+$scope module m $end
+$var wire 1 I a $end
+$var wire 1 J b $end
+$var wire 1 ) sel $end
+$var wire 1 K y $end
+$upscope $end
+$upscope $end
+$scope begin gen_mux2[6] $end
+$var parameter 4 L i $end
+$scope module m $end
+$var wire 1 M a $end
+$var wire 1 N b $end
+$var wire 1 ) sel $end
+$var wire 1 O y $end
+$upscope $end
+$upscope $end
+$scope begin gen_mux2[7] $end
+$var parameter 4 P i $end
+$scope module m $end
+$var wire 1 Q a $end
+$var wire 1 R b $end
+$var wire 1 ) sel $end
+$var wire 1 S y $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b111 P
+b110 L
+b101 H
+b100 D
+b11 @
+b10 <
+b1 8
+b0 4
+b1000 3
+b1000 .
+b1000 #
+b1111 "
+$end
+#0
+$dumpvars
+0S
+0R
+0Q
+0O
+0N
+0M
+0K
+0J
+0I
+0G
+0F
+0E
+0C
+0B
+0A
+0?
+0>
+0=
+0;
+0:
+09
+07
+06
+05
+b0 2
+b0 1
+b0 0
+bx /
+b0 -
+b0 ,
+b0 +
+bx *
+0)
+1(
+bx '
+0&
+b0 %
+b0 $
+bx !
+$end
+#5000
+b0 !
+b0 /
+1&
+#6000
+17
+b10000001 -
+b10000001 2
+1S
+16
+1R
+1=
+1I
+b10000001 '
+1)
+b10000001 %
+b10000001 ,
+b10000001 1
+b100100 $
+b100100 +
+b100100 0
+b0 *
+0(
+#10000
+0&
+#15000
+b10000001 !
+b10000001 /
+1&
+#16000
+1?
+1C
+b1101 -
+b1101 2
+0S
+1>
+1B
+0R
+15
+19
+0=
+1M
+b1101 '
+b1101 %
+b1101 ,
+b1101 1
+b1100011 $
+b1100011 +
+b1100011 0
+b1 *
+#20000
+0&
+#25000
+b1101 !
+b1101 /
+1&
+#26000
+07
+1;
+0?
+0C
+b10010 -
+b10010 2
+1G
+06
+1:
+0>
+0B
+1F
+09
+1=
+b10010 '
+b10010 %
+b10010 ,
+b10010 1
+b1100101 $
+b1100101 +
+b1100101 0
+b10 *
+#30000
+0&
+#35000
+b10010 !
+b10010 /
+1&
+#36000
+1?
+1K
+b1110110 -
+b1110110 2
+1O
+1>
+1J
+1N
+1A
+0I
+0M
+b1110110 '
+b1110110 %
+b1110110 ,
+b1110110 1
+b1101 $
+b1101 +
+b1101 0
+b11 *
+#40000
+0&
+#45000
+b1110110 !
+b1110110 /
+1&
+#46000
+0;
+1C
+0G
+0K
+0O
+b10001100 -
+b10001100 2
+1S
+0:
+1B
+0F
+0J
+0N
+1R
+1I
+1M
+1Q
+b10001100 '
+b10001100 %
+b10001100 ,
+b10001100 1
+b11101101 $
+b11101101 +
+b11101101 0
+b100 *
+#50000
+0&
+#55000
+b10001100 !
+b10001100 /
+1&
+#56000
+1;
+0C
+b11000110 -
+b11000110 2
+1O
+16
+0B
+1N
+05
+19
+0A
+0I
+b11000110 '
+0)
+b11000101 %
+b11000101 ,
+b11000101 1
+b11000110 $
+b11000110 +
+b11000110 0
+b101 *
+#60000
+0&
+#65000
+b11000110 !
+b11000110 /
+1&
+#66000
+17
+0;
+b11100101 -
+b11100101 2
+1K
+1:
+1F
+1J
+0R
+15
+09
+1I
+b11100101 '
+b1110111 %
+b1110111 ,
+b1110111 1
+b11100101 $
+b11100101 +
+b11100101 0
+b110 *
+#70000
+0&
+#75000
+b11100101 !
+b11100101 /
+1&
+#76000
+1;
+1C
+0K
+b10001111 -
+b10001111 2
+0O
+06
+0>
+1R
+19
+1A
+0I
+0M
+b10001111 '
+b11110010 %
+b11110010 ,
+b11110010 1
+b10001111 $
+b10001111 +
+b10001111 0
+b111 *
+#80000
+0&
+#85000
+b10001111 !
+b10001111 /
+1&
+#86000
+07
+0;
+0?
+1K
+b11101000 -
+b11101000 2
+1O
+16
+0:
+1>
+0F
+0J
+05
+09
+0=
+1I
+1M
+b11101000 '
+b11000101 %
+b11000101 ,
+b11000101 1
+b11101000 $
+b11101000 +
+b11101000 0
+b1000 *
+#90000
+0&
+#95000
+b11101000 !
+b11101000 /
+1&
+#96000
+17
+1?
+0O
+b101101 -
+b101101 2
+0S
+1B
+1J
+0N
+0R
+15
+1=
+1E
+0M
+b101101 '
+1)
+b101101 %
+b101101 ,
+b101101 1
+b10111101 $
+b10111101 +
+b10111101 0
+b1001 *
+#100000
+0&
+#105000
+b101101 !
+b101101 /
+1&
+#106000
+1;
+0?
+0C
+b1100011 -
+b1100011 2
+1O
+06
+1:
+0>
+0J
+19
+0=
+0A
+0E
+1M
+0Q
+b1100011 '
+0)
+b1010 %
+b1010 ,
+b1010 1
+b1100011 $
+b1100011 +
+b1100011 0
+b1010 *
+#110000
+0&
+#115000
+b1100011 !
+b1100011 /
+1&
+#116000
+07
+1C
+0O
+b10101010 -
+b10101010 2
+1S
+1J
+1R
+05
+09
+0M
+b10101010 '
+1)
+b10101010 %
+b10101010 ,
+b10101010 1
+b100000 $
+b100000 +
+b100000 0
+b1011 *
+#120000
+0&
+#125000
+b10101010 !
+b10101010 /
+1&
+#126000
+17
+0C
+1G
+0K
+b10011 -
+b10011 2
+0S
+16
+0B
+1F
+0J
+0R
+19
+1=
+1E
+0I
+1Q
+b10011 '
+b10011 %
+b10011 ,
+b10011 1
+b10010110 $
+b10010110 +
+b10010110 0
+b1100 *
+#130000
+0&
+#135000
+b10011 !
+b10011 /
+1&
+#136000
+1C
+0G
+1K
+b1101011 -
+b1101011 2
+1O
+1B
+0F
+1J
+1N
+15
+0=
+1M
+0Q
+b1101011 '
+b1101011 %
+b1101011 ,
+b1101011 1
+b1010011 $
+b1010011 +
+b1010011 0
+b1101 *
+#140000
+0&
+#145000
+b1101011 !
+b1101011 /
+1&
+#146000
+07
+1?
+0O
+b10101110 -
+b10101110 2
+1S
+06
+1>
+0N
+1R
+05
+0E
+0M
+b10101110 '
+b10101110 %
+b10101110 ,
+b10101110 1
+b10 $
+b10 +
+b10 0
+b1110 *
+#150000
+0&
+#155000
+b10101110 !
+b10101110 /
+1&
+#156000
+1(
+b1111 *
+#160000
+0&
+#165000
+b0 !
+b0 /
+1&
+#170000
+0&
+#175000
+1&
+#176000

@@ -1,0 +1,107 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/ghost/Desktop/itmo/3rd/FCE/lab1/simulation/modelsim
+vmain
+Z1 !s110 1794351326
+!i10b 1
+!s100 `FWOblNUki4C_dER>Cfe02
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+ImWbRFM659?KoOnL401QXK2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1794260067
+8/home/ghost/Desktop/itmo/3rd/FCE/lab1/main.v
+F/home/ghost/Desktop/itmo/3rd/FCE/lab1/main.v
+!i122 0
+L0 1 25
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+!s108 1794351325.000000
+!s107 /home/ghost/Desktop/itmo/3rd/FCE/lab1/main.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/ghost/Desktop/itmo/3rd/FCE/lab1|/home/ghost/Desktop/itmo/3rd/FCE/lab1/main.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+/home/ghost/Desktop/itmo/3rd/FCE/lab1
+Z7 tCvgOpt 0
+vmux2_assign
+R1
+!i10b 1
+!s100 TBT=VQA;hf]8_3S:AFcnz0
+R2
+I=YiIl8=5o;ZcFQ50]jmSe3
+R3
+R0
+w1794218531
+8/home/ghost/Desktop/itmo/3rd/FCE/lab1/mux2_assign.v
+F/home/ghost/Desktop/itmo/3rd/FCE/lab1/mux2_assign.v
+!i122 1
+L0 1 10
+R4
+r1
+!s85 0
+31
+Z8 !s108 1794351326.000000
+!s107 /home/ghost/Desktop/itmo/3rd/FCE/lab1/mux2_assign.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/ghost/Desktop/itmo/3rd/FCE/lab1|/home/ghost/Desktop/itmo/3rd/FCE/lab1/mux2_assign.v|
+!i113 1
+R5
+R6
+R7
+vmux2_n
+R1
+!i10b 1
+!s100 CHoN86_I2KJclzoERbgCi1
+R2
+I^@`YMQY?KmnccDfm78?d41
+R3
+R0
+w1794218431
+8/home/ghost/Desktop/itmo/3rd/FCE/lab1/mux2_n.v
+F/home/ghost/Desktop/itmo/3rd/FCE/lab1/mux2_n.v
+!i122 2
+L0 1 22
+R4
+r1
+!s85 0
+31
+R8
+!s107 /home/ghost/Desktop/itmo/3rd/FCE/lab1/mux2_n.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/ghost/Desktop/itmo/3rd/FCE/lab1|/home/ghost/Desktop/itmo/3rd/FCE/lab1/mux2_n.v|
+!i113 1
+R5
+R6
+R7
+vtb
+R1
+!i10b 1
+!s100 S6fX>Lm7mZ08EJO:zfg:e0
+R2
+IRSGIG3h5UY@k@JPUn]ZW63
+R3
+R0
+w1794259912
+8/home/ghost/Desktop/itmo/3rd/FCE/lab1/tb.v
+F/home/ghost/Desktop/itmo/3rd/FCE/lab1/tb.v
+!i122 3
+L0 3 66
+R4
+r1
+!s85 0
+31
+R8
+!s107 /home/ghost/Desktop/itmo/3rd/FCE/lab1/tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/ghost/Desktop/itmo/3rd/FCE/lab1|/home/ghost/Desktop/itmo/3rd/FCE/lab1/tb.v|
+!i113 1
+R5
+R6
+R7
