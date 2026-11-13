@@ -1,0 +1,5 @@
+impl/
+output/
+*.vcd
+*.out
+*tmp.v
