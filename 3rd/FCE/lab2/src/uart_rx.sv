@@ -130,4 +130,4 @@ module uart_rx #(
             data_o <= data_buf;
     end
 
-endmodule;
+endmodule
