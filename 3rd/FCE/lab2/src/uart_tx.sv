@@ -23,6 +23,7 @@ module uart_tx #(
 
     state_e state, state_next;
 
+    logic [7:0] data_buf;
     logic [CYCLE_W-1:0] baud_cnt, baud_cnt_next;
     logic [2:0] bit_cnt, bit_cnt_next;
 
@@ -32,34 +33,49 @@ module uart_tx #(
     always_ff @(posedge clk_i) begin
         if (~rst_n_i) begin
             state <= IDLE;
+            baud_cnt <= 0;
             bit_cnt <= 3'd0;
         end else begin
             state <= state_next;
+            baud_cnt <= baud_cnt_next;
             bit_cnt <= bit_cnt_next;
         end
     end
-
+    
+    // Buf input data
     always_ff @(posedge clk_i) begin
-        if (~rst_n_i || (baud_cnt == CYCLE_MAX) || (state == IDLE)) begin
-            baud_cnt <= 0;
-        end else begin
-            baud_cnt <= baud_cnt + 1'd1;
+        if (~rst_n_i) begin
+            data_buf = 8'd0;
+        end else if (state == IDLE && start_i) begin
+            data_buf = data_i;
         end
     end
 
+    // Baud cycle counter
     always_comb begin
-        if (state == IDLE)
-            bit_cnt_next = 3'd0;
-        else if (baud_tick) begin
-            if (state == SEND_BIT && bit_cnt < 3'd7)
-                bit_cnt_next = bit_cnt + 1'b1;
-            else
-                bit_cnt_next = 3'd0;
-        end else
-            bit_cnt_next = bit_cnt;
+        if (~rst_n_i || (state == IDLE)) begin // reset on rst or idling
+            baud_cnt_next = 0;
+        end else if (baud_cnt == CYCLE_MAX) begin // reset each baud cycle
+            baud_cnt_next = 0;
+        end else begin 
+            baud_cnt_next = baud_cnt + 1'd1;
+        end
     end
 
+    // Data bit counter
+    always_comb begin
+        if (state == SEND_BIT) begin
+            if (baud_tick) begin
+                bit_cnt_next = bit_cnt + 1'd1;
+            end else begin
+                bit_cnt_next = bit_cnt;
+            end
+        end else begin
+            bit_cnt_next = 3'd0;
+        end
+    end
 
+    // UART FSM
     always_comb begin
         state_next = state;
 
@@ -90,12 +106,12 @@ module uart_tx #(
         endcase
     end
 
-    // tx_wire_o
+    // Out signal to TX line
     always_comb begin
         case (state)
             IDLE:       tx_wire_o = 1'b1;
             START:      tx_wire_o = 1'b0;
-            SEND_BIT:   tx_wire_o = data_i[bit_cnt];
+            SEND_BIT:   tx_wire_o = data_buf[bit_cnt];
             STOP:       tx_wire_o = 1'b1;
             default:    tx_wire_o = 1'b1;
         endcase

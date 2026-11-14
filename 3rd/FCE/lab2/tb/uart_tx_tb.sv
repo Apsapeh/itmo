@@ -36,45 +36,51 @@ module uart_tx_tb;
     end 
 
     integer i;
+    integer d_i;
     initial begin
         rst_n = 1'b0;
         @(posedge clk);
         #1;
         rst_n = 1'b1;
 
-        data = $random;
-        // data = 8'b01010101;
-        // data = 8'b11111111;
-        start = 1'b1;
+        for (d_i = 0; d_i < 256; d_i = d_i + 1) begin
+            data = d_i[7:0];
+            start = 1'b1;
 
-        // wait for start bit
-        @(posedge clk);
-        #1;
-        if (tx_wire !== 1'b0)
-            $display("Error start bit");
+            // wait for start bit
+            @(posedge clk);
+            #100;
+            if (tx_wire !== 1'b0)
+                $display("Error start bit");
 
-        
-        for (i = 0; i < 8; i = i + 1) begin
-             #10_000;
+            start = 1'b0;
+            
+            for (i = 0; i < 8; i = i + 1) begin
+                 #10_000;
 
-             if (tx_wire !== data[i])
-                 $display("Error data bit[%d]: expected=%b got=%b", i, data[i], tx_wire);
+                 if (tx_wire !== data[i])
+                     $display("Error data bit[%d]: expected=%b got=%b", i, data[i], tx_wire);
 
-             if (busy === 1'b0)
-                 $display("Done at %d)", i);
+                 if (busy === 1'b0)
+                     $display("Done at %d)", i);
+            end
+
+            // wait for stop bit
+            #10_000;
+            if (tx_wire != 1'b1)
+                $display("Error stop bit");
+
+            // wait for stop transimition
+            #10_000;
+
+            if (busy !== 1'b0)
+                $display("Error: Must be not busy");
+
+            // Delay random time to emulate ramom sending
+            #(500 + ($abs($random) % 1000));
         end
 
-        // wait for stop bit
-        #10_000;
-        if (tx_wire != 1'b1)
-            $display("Error stop bit");
-
-        // wait for stop transimition
-        #10_000;
-
-        if (busy !== 1'b0)
-            $display("Error: Must be not busy");
-
+        $display("Test PASSED");
         #10 $finish;
     end
 endmodule
