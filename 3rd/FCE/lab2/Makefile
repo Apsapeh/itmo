@@ -1,6 +1,9 @@
-IVERILOG    := iverilog -g2012
-VVP         := vvp
-BUILD_DIR   := impl
+IVERILOG       := iverilog -g2012
+VVP            := vvp
+OPENFGPALOADER := openFPGALoader -b tangprimer20k
+BUILD_DIR      := impl
+
+BITSTREAM      := impl/pnr/lab2.fs
 
 uart_tx:
 	$(call run_test,uart_tx,src/uart_tx.sv)
@@ -18,3 +21,10 @@ define run_test
 	@echo "\n=== Running $(1) ==="
 	@cd $(BUILD_DIR) && $(VVP) $(1)
 endef
+
+.PHONY: uart_tx uart_rx uart_tx_rx
+
+upload:
+	$(OPENFGPALOADER) $(BITSTREAM) 
+
+.PHONY: upload
