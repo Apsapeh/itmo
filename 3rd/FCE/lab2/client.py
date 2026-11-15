@@ -1,20 +1,20 @@
+#!/usr/bin/env python3
+
 import tkinter as tk
-import serial
-import struct
 import sys
+
+import test
 
 root = tk.Tk() 
 
 a_var = tk.StringVar()
 b_var = tk.StringVar()
 answer_var = tk.StringVar()
-
 fpga_ser = None
 
 def main():
     global fpga_ser
-
-    fpga_ser = serial.Serial(sys.argv[1], 115200, timeout=2)
+    fpga_ser = test.new_fpga_serial(sys.argv[1], 115200, 2)
 
     font = ("Arial", 25) 
     a_var.set("0")
@@ -44,14 +44,8 @@ def send_pressed():
         answer_var.set("BAD VALUE")
         return
 
-    resp = uart_fpga(a, b)
+    resp = test.uart_fpga(a, b, fpga_ser)
     answer_var.set(str(resp))
-
-def uart_fpga(a, b) -> int:
-   fpga_ser.write(struct.pack('<B', a)) 
-   fpga_ser.write(struct.pack('<B', b))
-   resp = fpga_ser.read(1)
-   return int.from_bytes(resp, 'little')
 
 if __name__ == "__main__":
     main()

@@ -25,7 +25,6 @@ module uart_rx #(
 
     state_e state, state_next;
     logic [CYCLE_W-1:0] baud_cnt, baud_cnt_next;
-    logic baud_cnt_enable, baud_cnt_enable_next;
     logic [2:0] bit_cnt, bit_cnt_next;
     logic [7:0] data_buf;
     logic is_ready_next;

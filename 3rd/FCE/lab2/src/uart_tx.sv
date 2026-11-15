@@ -45,15 +45,15 @@ module uart_tx #(
     // Buf input data
     always_ff @(posedge clk_i) begin
         if (~rst_n_i) begin
-            data_buf = 8'd0;
+            data_buf <= 8'd0;
         end else if (state == IDLE && start_i) begin
-            data_buf = data_i;
+            data_buf <= data_i;
         end
     end
 
     // Baud cycle counter
     always_comb begin
-        if (~rst_n_i || (state == IDLE)) begin // reset on rst or idling
+        if (state == IDLE) begin // reset on idling
             baud_cnt_next = 0;
         end else if (baud_cnt == CYCLE_MAX) begin // reset each baud cycle
             baud_cnt_next = 0;
