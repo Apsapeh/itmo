@@ -14,6 +14,9 @@ add:
 sqrt:
 	$(call run_test,sqrt,src/sqrt.sv)
 
+cbrt:
+	$(call run_test,cbrt,src/cbrt.sv src/mul.sv)
+
 uart_tx:
 	$(call run_test,uart_tx,src/uart_tx.sv)
 
@@ -31,7 +34,7 @@ define run_test
 	@cd $(BUILD_DIR) && $(VVP) $(1)
 endef
 
-.PHONY: mul add uart_tx uart_rx uart_tx_rx
+.PHONY: mul add sqrt cbrt uart_tx uart_rx uart_tx_rx
 
 upload:
 	$(OPENFGPALOADER) $(BITSTREAM) 
