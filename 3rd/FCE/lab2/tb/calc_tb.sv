@@ -67,6 +67,9 @@ module calc_tb;
                 b = vec[a_i - (C - V_C)][15:0];
             end
 
+            // a = 131;
+            // b = 8684;
+
             e_c = int'($floor(real'(a) ** (1.0/3.0) + 1.0e-9));
             e_s = int'($floor($sqrt(real'(b))));
             expected = e_c + e_s;
@@ -86,6 +89,8 @@ module calc_tb;
 
             @(posedge clk);
             #1;
+
+            // $finish();
         end
 
         $display("Test PASSED");
