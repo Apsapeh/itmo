@@ -73,7 +73,7 @@ module mul #(
                 if (bit_cnt == B_W[RES_W_W-1:0]-1) begin
                     state_next = DONE; 
                 end else begin
-                    bit_cnt_next = bit_cnt + 1; 
+                    bit_cnt_next = bit_cnt + 1'd1; 
                     a_next = a << 1;
                     b_next = b >> 1;
                 end
@@ -86,7 +86,7 @@ module mul #(
     end 
 
     assign res_o = res;
-    assign is_busy_o = (state == CALC);
+    assign is_busy_o = (state != IDLE);
     assign is_done_o = (state == DONE); 
 
 endmodule

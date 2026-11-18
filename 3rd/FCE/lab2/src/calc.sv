@@ -49,7 +49,8 @@ module calc (
     end
 
     /* ====> Devices <==== */
-    logic           cbrt_start, cbrt_is_busy, cbrt_is_done;
+    logic           cbrt_start;
+    logic           cbrt_is_done;
     logic   [5:0]   cbrt_res;
     cbrt cbrt0 (
         .clk_i    (clk_i),
@@ -57,11 +58,12 @@ module calc (
         .x_i      (a_i),
         .start_i  (cbrt_start),
         .res_o    (cbrt_res),
-        .is_busy_o(cbrt_is_busy),
+        .is_busy_o(),
         .is_done_o(cbrt_is_done)
     );
 
-    logic           sqrt_start, sqrt_is_busy, sqrt_is_done;
+    logic           sqrt_start;
+    logic           sqrt_is_done;
     logic   [7:0]   sqrt_res;
     sqrt #(.W(16)) sqrt0 (
         .clk_i    (clk_i),
@@ -69,11 +71,12 @@ module calc (
         .x_i      (b_i),
         .start_i  (sqrt_start),
         .res_o    (sqrt_res),
-        .is_busy_o(sqrt_is_busy),
+        .is_busy_o(),
         .is_done_o(sqrt_is_done)
     );
 
-    logic           add_start, add_is_busy, add_is_done;
+    logic           add_start;
+    logic           add_is_done;
     logic   [7:0]   add_a, add_b;
     logic   [8:0]   add_res;
     add #(.W(8)) add0 (
@@ -83,7 +86,7 @@ module calc (
         .b_i      (add_b),
         .start_i  (add_start),
         .res_o    (add_res),
-        .is_busy_o(add_is_busy),
+        .is_busy_o(),
         .is_done_o(add_is_done)
     );
 

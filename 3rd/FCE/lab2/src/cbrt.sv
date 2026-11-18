@@ -51,7 +51,7 @@ module cbrt (
     logic [5:0]  mul_b;
     logic        mul_start;
     logic [12:0] mul_res;
-    wire         mul_is_busy, mul_is_done;
+    wire         mul_is_done;
     mul #(
         .A_W(7),
         .B_W(6)
@@ -62,7 +62,7 @@ module cbrt (
         .b_i      (mul_b),
         .start_i  (mul_start),
         .res_o    (mul_res),
-        .is_busy_o(mul_is_busy),
+        .is_busy_o(),
         .is_done_o(mul_is_done)
     );
 
@@ -134,7 +134,7 @@ module cbrt (
                     state_next = DONE;
                 end else begin
                     state_next = P1_WAIT;
-                    s_next = s - 3;
+                    s_next = s - 4'd3;
 
                     mul_a = {1'b0, y_next << 1};
                     mul_b = 6'd3;

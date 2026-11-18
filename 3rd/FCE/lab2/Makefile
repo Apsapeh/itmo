@@ -39,6 +39,8 @@ endef
 
 .PHONY: mul add sqrt cbrt uart_tx uart_rx uart_tx_rx
 
+all: calc mul add sqrt uart_tx uart_rx uart_tx_rx cbrt
+
 upload:
 	$(OPENFGPALOADER) $(BITSTREAM) 
 

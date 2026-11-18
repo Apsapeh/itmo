@@ -17,7 +17,7 @@ module mul_tb;
     mul #(
          .A_W(6 /* default 6 */),
          .B_W(2 /* default 2 */)
-      ) mul (
+      ) dut (
          .clk_i    (clk),
          .rst_n_i  (rst_n),
          .a_i      (a),

@@ -49,7 +49,8 @@ module cbrt_tb;
         rst_n = 1'b1;
 
         for (x_i = 0; x_i < C; x_i += 1) begin
-            $display("%d", x_i);
+            $display("Testing cbrt [%d / %d]...", x_i, C-1);
+
             x = x_i[W-1:0];
             expected = int'($floor(real'(x_i) ** (1.0/3.0) + 1.0e-9));
 

@@ -85,7 +85,7 @@ module sqrt #(
     end
 
     assign res_o = y[R_W-1:0];
-    assign is_busy_o = (state == CALC);
+    assign is_busy_o = (state != IDLE);
     assign is_done_o = (state == DONE);
 
 endmodule

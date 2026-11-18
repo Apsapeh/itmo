@@ -47,7 +47,7 @@ module add #(
 
     /* ====> Devices <==== */
     logic fa_s, fa_c;
-    full_adder full_adder (
+    full_adder full_adder0 (
          .a_i(a[0]),
          .b_i(b[0]),
          .c_i(c),
@@ -81,7 +81,7 @@ module add #(
                 if (bit_cnt == W[RES_W_W-1:0]) begin
                     state_next = DONE;
                 end else begin
-                    bit_cnt_next = bit_cnt + 1;
+                    bit_cnt_next = bit_cnt + 1'd1;
                     a_next = a >> 1;
                     b_next = b >> 1;
                     c_next = fa_c;
@@ -95,7 +95,7 @@ module add #(
     end
 
     assign res_o = res;
-    assign is_busy_o = (state == CALC);
+    assign is_busy_o = (state != IDLE);
     assign is_done_o = (state == DONE);
 
 endmodule
