@@ -11,6 +11,9 @@ mul:
 add:
 	$(call run_test,add,src/add.sv src/half_adder.sv src/full_adder.sv)
 
+sqrt:
+	$(call run_test,sqrt,src/sqrt.sv)
+
 uart_tx:
 	$(call run_test,uart_tx,src/uart_tx.sv)
 
