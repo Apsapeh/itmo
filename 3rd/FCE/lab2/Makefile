@@ -8,6 +8,9 @@ BITSTREAM      := impl/pnr/lab2.fs
 mul:
 	$(call run_test,mul,src/mul.sv)
 
+add:
+	$(call run_test,add,src/add.sv src/half_adder.sv src/full_adder.sv)
+
 uart_tx:
 	$(call run_test,uart_tx,src/uart_tx.sv)
 
@@ -25,7 +28,7 @@ define run_test
 	@cd $(BUILD_DIR) && $(VVP) $(1)
 endef
 
-.PHONY: mul uart_tx uart_rx uart_tx_rx
+.PHONY: mul add uart_tx uart_rx uart_tx_rx
 
 upload:
 	$(OPENFGPALOADER) $(BITSTREAM) 
