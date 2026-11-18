@@ -14,6 +14,7 @@ module top (
         WAIT_A_H,
         WAIT_B_L,
         WAIT_B_H,
+        START_CALC,
         WAIT_CALC,
         WAIT_SENDING_ANS_L,
         WAIT_SENDING_ANS_H
@@ -74,8 +75,19 @@ module top (
         .busy_o(tx_busy)
     );
 
-    logic [15:0] result;
-    assign result = a + b;
+    logic calc_start, calc_is_busy, calc_is_done;
+    logic [8:0] calc_res; 
+    calc calc0 (
+        .clk_i    (clk_i),
+        .rst_n_i  (rst_n_i),
+        .a_i      (a),
+        .b_i      (b),
+        .start_i  (calc_start),
+        .res_o    (calc_res),
+        .is_busy_o(calc_is_busy),
+        .is_done_o(calc_is_done)
+    );
+
    
     always_comb begin
         state_next = state;
@@ -84,6 +96,8 @@ module top (
         rx_confirm_next = 1'b0;
         tx_start_next = 1'b0;
         tx_data_next = tx_data;
+
+        calc_start = '0;
 
         case (state)
             WAIT_A_L: begin
@@ -114,23 +128,28 @@ module top (
                 if (rx_is_ready && ~rx_confirm) begin
                     b_next = {rx_data, b[15:8]};
                     rx_confirm_next = 1'b1;
-                    state_next = WAIT_CALC;
+                    state_next = START_CALC;
                 end
             end
 
+            START_CALC: begin
+                state_next = WAIT_CALC;
+                calc_start = 1'd1;
+            end
+
             WAIT_CALC: begin
-                state_next = WAIT_SENDING_ANS_L;
-                tx_start_next = 1'b1;
-                tx_data_next = result[7:0];
-                //tx_data_next = 8'd4;
+                if (calc_is_done) begin
+                    state_next = WAIT_SENDING_ANS_L;
+                    tx_start_next = 1'b1;
+                    tx_data_next = calc_res[7:0];
+                end
             end
 
             WAIT_SENDING_ANS_L: begin
                 if (~tx_busy && ~tx_start) begin
                     state_next = WAIT_SENDING_ANS_H;
                     tx_start_next = 1'b1;
-                    tx_data_next = result[15:8];
-                    //tx_data_next = 8'd4;
+                    tx_data_next = {7'd0, calc_res[8]};
                 end
             end
 

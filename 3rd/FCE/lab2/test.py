@@ -45,7 +45,7 @@ def main():
     print(f"PASSED={passed}  FAILED={failed}")
 
 def test(a, b, fpga_ser, passed, failed):
-    expected = (a + b) % 65536
+    expected = (int(a ** (1/3) + 1.0e-9) + int(b ** (1/2))) % 65536
     got = uart_fpga(a, b, fpga_ser)
 
     if expected != got:
