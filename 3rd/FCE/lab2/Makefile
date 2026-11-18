@@ -5,6 +5,9 @@ BUILD_DIR      := impl
 
 BITSTREAM      := impl/pnr/lab2.fs
 
+calc:
+	$(call run_test,calc,src/calc.sv src/mul.sv src/add.sv src/half_adder.sv src/full_adder.sv src/sqrt.sv src/cbrt.sv)
+
 mul:
 	$(call run_test,mul,src/mul.sv)
 
